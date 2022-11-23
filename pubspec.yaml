@@ -33,7 +33,9 @@ dependencies:
     sdk: flutter
 
   circular_menu: ^2.0.1
-
+  google_nav_bar: ^5.0.6
+  hidable: ^1.0.3
+  flutter_staggered_grid_view: ^0.6.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -58,7 +60,7 @@ dev_dependencies:
 flutter:
 
   # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
+  # included with your applicate tion, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
@@ -66,6 +68,14 @@ flutter:
   assets:
     - assets/banner/
     - assets/img/
+
+  fonts:
+      - family: VerreIcons
+        fonts:
+        - asset: fonts/VerreIcons.ttf
+      - family: Gobelet
+        fonts:
+        - asset: fonts/GobeletIcons.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -16,8 +16,9 @@ class TheAppBar extends StatelessWidget implements PreferredSizeWidget {
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset('assets/banner/umg.png',),
-        ],
+            ],
       ),
+
 
     );
   }
