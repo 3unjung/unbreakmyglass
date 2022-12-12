@@ -1,158 +1,56 @@
+// import 'package:banner_carousel/banner_carousel.dart';
 import 'package:flutter/material.dart';
-import 'homepage.dart';
-
+// import 'homepage.dart';
 
 class Products extends StatelessWidget {
   const Products({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> containers = [];
+
+    for (int i = 0; i < 12; i++) {
+      containers.add(
+        Container(
+          padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(children: [
+            Column(
+              children: [
+                Image.asset("assets/img/verre.jpg"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(onPressed: (){
+                      print("je suis cliquée");
+                    }, icon: const Icon(Icons.arrow_back_outlined, color: Colors.blue,)),
+
+                    Image.asset("assets/img/fluo rose.jpg",
+                        height: 45, width: 45),
+                    IconButton(onPressed: (){
+                      print("je ne suis pas cliquée");
+
+                    }, icon: const Icon(Icons.arrow_forward_outlined, color: Colors.blue,))
+                  ],
+                ),
+              ],
+            )
+          ]),
+        ),
+      );
+    }
+
     return GridView.count(
-      controller: scrollController,
-
-      primary: false,
-      padding: const EdgeInsets.all(20),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
       crossAxisCount: 2,
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.teal[100],
-              borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            children: [
-              const Text("THIS IS WILL BE"),
-              Image.asset(
-                "assets/img/verre.jpg",
-                width: 100,
-                height: 100,
-              ),
-            ],
-
-          ),
-        ),
-
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: Colors.teal[100],
-              borderRadius: BorderRadius.circular(16)),
-          child: Column(
-            children: [
-              const Text("THIS IS WILL BE"),
-              Image.asset(
-                "assets/img/verre.jpg",
-                width: 100,
-                height: 100,
-              ),
-            ],
-          ),
-        ),
-
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: Colors.teal[100],
-              borderRadius: BorderRadius.circular(16)),
-          child: Column(
-            children: [
-              const Text("THIS IS WILL BE"),
-              Image.asset(
-                "assets/img/verre.jpg",
-                width: 100,
-                height: 100,
-              ),
-            ],
-          ),
-        ),
-
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: Colors.teal[100],
-              borderRadius: BorderRadius.circular(16)),
-          child: Column(
-            children: [
-              const Text("THIS IS WILL BE"),
-              Image.asset(
-                "assets/img/verre.jpg",
-                width: 100,
-                height: 100,
-              ),
-            ],
-          ),
-        ),
-
-
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: Colors.teal[100],
-              borderRadius: BorderRadius.circular(16)),
-          child: Column(
-            children: [
-              const Text("THIS IS WILL BE"),
-              Image.asset(
-                "assets/img/verre.jpg",
-                width: 100,
-                height: 100,
-              ),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: Colors.teal[100],
-              borderRadius: BorderRadius.circular(16)),
-          child: Column(
-            children: [
-              const Text("THIS IS WILL BE"),
-              Image.asset(
-                "assets/img/verre.jpg",
-                width: 100,
-                height: 100,
-              ),
-            ],
-          ),
-        ),
-
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: Colors.teal[100],
-              borderRadius: BorderRadius.circular(16)),
-          child: Column(
-            children: [
-              const Text("THIS IS WILL BE"),
-              Image.asset(
-                "assets/img/verre.jpg",
-                width: 100,
-                height: 100,
-              ),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              color: Colors.teal[100],
-              borderRadius: BorderRadius.circular(16)),
-          child: Column(
-            children: [
-              const Text("THIS IS WILL BE"),
-              Image.asset(
-                "assets/img/verre.jpg",
-                width: 100,
-                height: 100,
-              ),
-            ],
-          ),
-        ),
-      ],
+      // rapport entre l'axe principal et transversal de chaque enfant
+      childAspectRatio: 0.80,
+      shrinkWrap: true,
+      children:
+        containers,
     );
   }
 }

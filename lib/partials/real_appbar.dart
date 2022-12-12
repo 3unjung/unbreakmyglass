@@ -3,8 +3,8 @@ import 'package:umg/main.dart';
 
 
 
-class TheAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const TheAppBar({super.key});
+class AppBarWithoutIcon extends StatelessWidget implements PreferredSizeWidget {
+  const AppBarWithoutIcon({super.key});
 
   @override
   Size get preferredSize => const Size.fromHeight(50);
@@ -13,23 +13,23 @@ class TheAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        iconTheme: const IconThemeData(
+      iconTheme: const IconThemeData(
         color: umgBottomNavBlack,
-        ),
+      ),
       backgroundColor: Colors.white,
       title: Row(
         // mainAxisAlignment: MainAxisAlignment.center,
         // mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           // Image.asset('assets/banner/umg.png',),
-          Icon(Icons.sort, size: 30, color: Colors.green,),
+          // Icon(Icons.sort, size: 30, color: Colors.green,),
           Padding(padding: EdgeInsets.only(
               left: 20
           ),
-              child: Text("UnbreakMyGlass",
-                style: TextStyle(color: umgVert,fontWeight: FontWeight.bold),),
-              ),
-            ],
+            child: Text("UnbreakMyGlass",
+              style: TextStyle(color: umgVert,fontWeight: FontWeight.bold),),
+          ),
+        ],
       ),
 
 

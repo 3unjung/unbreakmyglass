@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:circular_menu/circular_menu.dart';
 import 'package:umg/main.dart';
-import 'package:umg/gobelet_icons.dart';
+import 'package:umg/screen/homepage/products.dart';
+import '../screen/settings/profile.dart';
 import '../verre_icons_icons.dart';
+import '../gobelet_de_merde_icons.dart';
+
+
 
 class Category extends StatefulWidget {
   const Category({Key? key}) : super(key: key);
@@ -25,15 +29,16 @@ class _CategoryState extends State<Category> {
             iconSize: 35,
             color: Colors.green,
             onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const UmgApp()));
               setState(() {
 
               });
             }),
         CircularMenuItem(
-            icon: Gobelet.gobelet_icon,
+            icon: GobeletDeMerde.image2vector,
             iconSize: 35,
             color: Colors.blue,
-            onTap: () {
+            onTap: ()  {
               setState(() {
 
               });
@@ -51,6 +56,8 @@ class _CategoryState extends State<Category> {
             icon: Icons.settings,
             color: Colors.grey,
             onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Profile()));
+
               setState(() {
 
               });
