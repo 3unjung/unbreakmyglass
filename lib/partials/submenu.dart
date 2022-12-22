@@ -9,7 +9,7 @@ class SubMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // hauteur temporaire
-      height: 500,
+      height: 75,
       padding: const EdgeInsets.only(top: 15),
       decoration: const BoxDecoration(
         color: blanc,
@@ -60,7 +60,6 @@ class SubMenu extends StatelessWidget {
                           const Text("Filter"),
                         ],
                       ),
-
                     ],
                   ),
                 )

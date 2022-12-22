@@ -6,6 +6,7 @@ const argente = Color(0xFFE6E7E4);
 const blanc = Color(0xFFF7F7F7);
 const umgVert = Color(0xFF88bb22);
 const umgBottomNavBlack = Color(0xFF1a1a1a);
+const umgGreyFont = Color(0xFF666666);
 
 void main() {
   runApp(const UmgApp());

@@ -94,7 +94,14 @@ flutter:
   assets:
     - assets/banner/
     - assets/img/
+    - assets/img/situation/
+    - assets/img/mojito/
+    - assets/img/verre_piscine/
+    - assets/img/verre_à_flûte/
+    - assets/img/verre_à_tube/
+    - assets/img/verre_à_vin/
     - assets/laucher/
+
 
   fonts:
     - family: VerreIcons
