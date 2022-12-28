@@ -23,7 +23,7 @@ class _GlassesListState extends State<GlassesList> {
         padding: EdgeInsets.only(left: 15, right: 15, top: 10),
         margin: EdgeInsets.symmetric(vertical: 3,horizontal: 4),
         decoration: BoxDecoration(
-          color: blanc,
+          color: argente,
         ),
         child: Column(
           children: [
