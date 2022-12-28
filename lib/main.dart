@@ -8,6 +8,12 @@ const umgVert = Color(0xFF88bb22);
 const umgBottomNavBlack = Color(0xFF1a1a1a);
 const umgGreyFont = Color(0xFF666666);
 
+const nameToColorMap = <String, Color>{
+  "blanc" : Color(0xFFFFFFFF),
+  "bleu_iris" : Color(0xff00345e),
+  "violet_iris" : Color(0xFF3D2157),
+};
+
 void main() {
   runApp(const UmgApp());
 }
