@@ -5,31 +5,26 @@ import 'package:flutter/services.dart';
 import 'package:umg/main.dart';
 import 'package:path/path.dart';
 
-class CarouselDemo extends StatefulWidget {
+class Carousel extends StatefulWidget {
   // declare a variable that will use the image path
   final String imgFolderPath;
 
-  const CarouselDemo({Key? key, required this.imgFolderPath}) : super(key: key);
+  const Carousel({Key? key, required this.imgFolderPath}) : super(key: key);
 
   @override
-  State<CarouselDemo> createState() => _CarouselState();
+  State<Carousel> createState() => _CarouselState();
 }
 
-class _CarouselState extends State<CarouselDemo> {
-  // list colors
-  List<Color?>? colorsList;
+class _CarouselState extends State<Carousel> {
+  // list of widgets that will go inside the carousel (currently simple
+  // containers)
+  List<Widget>? carouselWidgetsList;
 
   // image list paths
   List<String>? pathsList;
 
-  List<String>? defaultSituationPathsList;
-  String? defaultSituationPath;
-
   // current color
   int curColorIndex = 0;
-
-  // is default situation image display
-  bool defaultSituationShown = true;
 
   _loadColors() async {
     // todo: would be more efficient inside glasses_list (do it once),
@@ -46,20 +41,27 @@ class _CarouselState extends State<CarouselDemo> {
         .where((String assetPath) => assetPath.contains(widget.imgFolderPath))
         .toList();
 
-    // fetch image 'default situation'
-    defaultSituationPath = pathsList
-        ?.firstWhere((String assetPath) => assetPath.contains(defaultSituationFileName));
+    // put the "situation" image at the beginning of the carousel
+    int defaultSituationIndex = pathsList!.indexWhere(
+            (String assetPath) => assetPath.contains(defaultSituationFileName));
+    String pathsSwapTemp = pathsList![defaultSituationIndex];
+    pathsList![defaultSituationIndex] = pathsList![0];
+    pathsList![0] = pathsSwapTemp;
 
-    pathsList = pathsList
-        ?.where((String assetPath) => !assetPath.contains(defaultSituationFileName))
-        .toList();
-
-    // fetch all colors list from the main file
-    colorsList = pathsList
-        ?.map((String path) => nameToColorMap[basenameWithoutExtension(path)])
-        .toList();
-
-    curColorIndex = (pathsList!.length / 2).floor();
+    carouselWidgetsList = [
+      Container(
+        height: 15,
+        width: 15,
+        color: nameToColorMap["blanc"],
+        child: const Text("S"),
+      )
+    ] + pathsList!
+        .sublist(1)
+        .map((String path) => Container(
+        height: 15,
+        width: 15,
+        color: nameToColorMap[basenameWithoutExtension(path)]
+    )).toList();
 
     setState(() { });
   }
@@ -67,7 +69,7 @@ class _CarouselState extends State<CarouselDemo> {
   @override
   Widget build(BuildContext context) {
     if (pathsList == null ||
-        colorsList == null) {
+        carouselWidgetsList == null) {
       return const Text("loading");
     }
 
@@ -75,59 +77,19 @@ class _CarouselState extends State<CarouselDemo> {
       children: [
         Container(
           margin: const EdgeInsets.all(10),
-          child: defaultSituationShown
-              ? Image.asset(defaultSituationPath!)
-              : Image.asset(pathsList![curColorIndex],),
+          child: Image.asset(pathsList![curColorIndex], height: 120, width: 120,),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            InkWell(
-              onTap: (
-                  ) {
-                setState(() {
-                  if (curColorIndex > 0) {
-                    curColorIndex -= 1;
-                  }
-                  defaultSituationShown = false;
-                });
-              },
-              child: const Icon(Icons.arrow_left_sharp)
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  defaultSituationShown = true;
-                });
-              },
-              child: Row(
-                children: [
-                  CarouselSlider(
-                  options: CarouselOptions(),
-                  items: [for(Color? color in colorsList!)
-                    Container(
-                      height: 15,
-                      width: 15,
-                      color: color!,
-                    ),],
-    ),
-
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  if (curColorIndex < pathsList!.length - 1) {
-                    curColorIndex += 1;
-                  }
-                  defaultSituationShown = false;
-                });
-              },
-
-            ),
-          ],
-        ),
+        CarouselSlider(
+            items: carouselWidgetsList,
+            options: CarouselOptions(
+                height: 20,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    curColorIndex = index;
+                  });
+                }
+            )
+        )
       ],
     );
   }
