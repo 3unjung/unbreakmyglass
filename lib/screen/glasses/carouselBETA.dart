@@ -5,17 +5,17 @@ import 'package:flutter/services.dart';
 import 'package:umg/main.dart';
 import 'package:path/path.dart';
 
-class Carousel extends StatefulWidget {
+class CarouselDemo extends StatefulWidget {
   // declare a variable that will use the image path
   final String imgFolderPath;
 
-  const Carousel({Key? key, required this.imgFolderPath}) : super(key: key);
+  const CarouselDemo({Key? key, required this.imgFolderPath}) : super(key: key);
 
   @override
-  State<Carousel> createState() => _CarouselState();
+  State<CarouselDemo> createState() => _CarouselState();
 }
 
-class _CarouselState extends State<Carousel> {
+class _CarouselState extends State<CarouselDemo> {
   // list colors
   List<Color?>? colorsList;
 
@@ -83,7 +83,8 @@ class _CarouselState extends State<Carousel> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             InkWell(
-              onTap: () {
+              onTap: (
+                  ) {
                 setState(() {
                   if (curColorIndex > 0) {
                     curColorIndex -= 1;
@@ -101,12 +102,16 @@ class _CarouselState extends State<Carousel> {
               },
               child: Row(
                 children: [
-                  for(Color? color in colorsList!)
+                  CarouselSlider(
+                  options: CarouselOptions(),
+                  items: [for(Color? color in colorsList!)
                     Container(
-                      height: 20,
-                      width: 20,
+                      height: 15,
+                      width: 15,
                       color: color!,
-                    ),
+                    ),],
+    ),
+
                 ],
               ),
             ),
@@ -119,7 +124,7 @@ class _CarouselState extends State<Carousel> {
                   defaultSituationShown = false;
                 });
               },
-                child: const Icon(Icons.arrow_right_sharp)
+
             ),
           ],
         ),

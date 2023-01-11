@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:umg/partials/navbarBottom.dart';
 import 'package:umg/partials/submenu.dart';
 import '/partials/cus_appbar.dart';
 import 'package:hidable/hidable.dart';
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
       // bottomNavigationBar: Hidable(controller: scrollController,wOpacity: false,child: const NavBarBottom(),),
       floatingActionButton: const Category(),
       body: ListView(
-        children: [
+        children: const [
           TheAppBar(),
           // body grisé
           SubMenu(),
@@ -38,9 +39,7 @@ class _HomePageState extends State<HomePage> {
           //   color: umgGreyFont,
           // ),
           GlassesList(),
-
-
-
+          // NavBarBottom(),
 
         ],
       ),

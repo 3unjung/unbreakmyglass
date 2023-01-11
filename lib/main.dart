@@ -7,6 +7,7 @@ const blanc = Color(0xFFF7F7F7);
 const umgVert = Color(0xFF88bb22);
 const umgBottomNavBlack = Color(0xFF1a1a1a);
 const umgGreyFont = Color(0xFF666666);
+const umgBleu = Color.fromARGB(100, 8, 187, 255);
 
 const nameToColorMap = <String, Color>{
   "blanc" : Color(0xFFFFFFFF),
@@ -33,6 +34,8 @@ class UmgApp extends StatelessWidget {
               scaffoldBackgroundColor: blanc,
       ),
       home: const HomePage(),
+
+
     );
   }
 }

@@ -22,12 +22,12 @@ class TheAppBar extends StatelessWidget implements PreferredSizeWidget {
         // mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           // Image.asset('assets/banner/umg.png',),
-          Icon(Icons.sort, size: 30, color: Colors.green,),
+          // Icon(Icons.sort, size: 30, color: Colors.green,),
           Padding(padding: EdgeInsets.only(
               left: 20
           ),
               child: Text("UnbreakMyGlass",
-                style: TextStyle(color: umgVert,fontWeight: FontWeight.bold),),
+                style: TextStyle(color: umgBleu,fontWeight: FontWeight.bold),),
               ),
             ],
       ),
