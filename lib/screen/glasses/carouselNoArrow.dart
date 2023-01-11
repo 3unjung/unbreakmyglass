@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:umg/main.dart';
@@ -40,6 +41,7 @@ class _CarouselState extends State<Carousel> {
         .where((String assetPath) => assetPath.contains(widget.imgFolderPath))
         .toList();
 
+    // put the "situation" image at the beginning of the carousel
     int defaultSituationIndex = pathsList!.indexWhere(
             (String assetPath) => assetPath.contains(defaultSituationFileName));
     String pathsSwapTemp = pathsList![defaultSituationIndex];
@@ -77,34 +79,17 @@ class _CarouselState extends State<Carousel> {
           margin: const EdgeInsets.all(10),
           child: Image.asset(pathsList![curColorIndex], height: 120, width: 120,),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            InkWell(
-                onTap: () {
-                  setState(() {
-                    if (curColorIndex > 0) {
-                      curColorIndex -= 1;
-                    }
-                  });
-                },
-                child: const Icon(Icons.arrow_left_sharp)
-            ),
-            Row(
-              children: carouselWidgetsList!,
-            ),
-            InkWell(
-                onTap: () {
-                  setState(() {
-                    if (curColorIndex < pathsList!.length - 1) {
-                      curColorIndex += 1;
-                    }
-                  });
-                },
-                child: const Icon(Icons.arrow_right_sharp)
-            ),
-          ],
-        ),
+        CarouselSlider(
+            items: carouselWidgetsList,
+            options: CarouselOptions(
+              height: 20,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  curColorIndex = index;
+                });
+              }
+            )
+        )
       ],
     );
   }

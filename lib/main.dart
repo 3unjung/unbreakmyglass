@@ -14,6 +14,8 @@ const nameToColorMap = <String, Color>{
   "violet_iris" : Color(0xFF3D2157),
 };
 
+const defaultSituationFileName = "default_situation";
+
 void main() {
   runApp(const UmgApp());
 }

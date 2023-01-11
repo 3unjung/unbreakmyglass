@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:umg/main.dart';
-import 'package:umg/screen/glasses/carousel.dart';
+import 'package:umg/screen/glasses/carouselNoArrow.dart';
 
 class GlassesList extends StatefulWidget {
   const GlassesList({Key? key}) : super(key: key);
