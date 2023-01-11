@@ -53,7 +53,7 @@ class _CarouselState extends State<Carousel> {
         height: 15,
         width: 15,
         color: nameToColorMap["blanc"],
-        child: const Text("S"),
+        child: Image.asset(pathsList![0], height: 15, width: 15,),
       )
     ] + pathsList!
         .sublist(1)
@@ -79,17 +79,20 @@ class _CarouselState extends State<Carousel> {
           margin: const EdgeInsets.all(10),
           child: Image.asset(pathsList![curColorIndex], height: 120, width: 120,),
         ),
-        CarouselSlider(
-            items: carouselWidgetsList,
-            options: CarouselOptions(
-              height: 20,
-              viewportFraction: 1/carouselWidgetsList!.length,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  curColorIndex = index;
-                });
-              }
-            )
+        SizedBox(
+          width: 15.0 * carouselWidgetsList!.length,
+          child: CarouselSlider(
+              items: carouselWidgetsList,
+              options: CarouselOptions(
+                height: 20,
+                viewportFraction: 1/carouselWidgetsList!.length,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    curColorIndex = index;
+                  });
+                }
+              )
+          ),
         )
       ],
     );
