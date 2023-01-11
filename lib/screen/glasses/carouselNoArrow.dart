@@ -83,6 +83,7 @@ class _CarouselState extends State<Carousel> {
             items: carouselWidgetsList,
             options: CarouselOptions(
               height: 20,
+              viewportFraction: 1/carouselWidgetsList!.length,
               onPageChanged: (index, reason) {
                 setState(() {
                   curColorIndex = index;
