@@ -12,7 +12,7 @@ class SubMenu extends StatelessWidget {
       ),
       child: const Padding(padding: EdgeInsets.all(5),
         child: Center(
-          child:  Text("Notre catalogue de verre", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),),
+          child:  Text("Notre catalogue", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600,fontSize: 21),),
         ),),
     );
   }

@@ -20,7 +20,8 @@ class AppBarWithoutIcon extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         // mainAxisAlignment: MainAxisAlignment.center,
         // mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
+          // Image.asset("asset/banner/logo.jpg"),
           // Image.asset('assets/banner/umg.png',),
           // Icon(Icons.sort, size: 30, color: Colors.green,),
           Padding(padding: EdgeInsets.only(

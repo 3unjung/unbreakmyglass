@@ -6,6 +6,7 @@ import 'package:umg/main.dart';
 import 'package:path/path.dart';
 
 class Carousel extends StatefulWidget {
+
   // declare a variable that will use the image path
   final String imgFolderPath;
 

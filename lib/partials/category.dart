@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:circular_menu/circular_menu.dart';
 import 'package:umg/main.dart';
+import 'package:umg/screen/glasses/details.dart';
 import 'package:umg/screen/homepage/products.dart';
 import '../screen/settings/profile.dart';
 import '../verre_icons_icons.dart';
@@ -48,6 +49,8 @@ class _CategoryState extends State<Category> {
             iconSize: 35,
             color: Colors.orange,
             onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DetailsGlasse()));
+
               setState(() {
 
               });

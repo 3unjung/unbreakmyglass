@@ -21,7 +21,7 @@ class TheAppBar extends StatelessWidget implements PreferredSizeWidget {
         // mainAxisAlignment: MainAxisAlignment.center,
         // mainAxisAlignment: MainAxisAlignment.center,
         children: const [
-          // Image.asset('assets/banner/umg.png',),
+          // Image.asset('assets/banner/logo.png',),
           // Icon(Icons.sort, size: 30, color: Colors.green,),
           Padding(padding: EdgeInsets.only(
               left: 20
