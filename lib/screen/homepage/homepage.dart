@@ -24,7 +24,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: Hidable(controller: scrollController,wOpacity: false,child: const NavBarBottom(),),
+      /*bottomNavigationBar: Hidable(
+        controller: scrollController,
+        wOpacity: false,
+        child: const NavBarBottom(),
+      ),*/
       floatingActionButton: const Category(),
       body: ListView(
         children: const [
