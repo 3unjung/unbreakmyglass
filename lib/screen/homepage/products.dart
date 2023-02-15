@@ -9,7 +9,7 @@ class Products extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> containers = [];
 
-    for (int i = 0; i < 12; i++) {
+    for (int i = 0; i < 9; i++) {
       containers.add(
         Container(
           padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
