@@ -6,10 +6,6 @@ import 'package:umg/partials/navbarBottom.dart';
 import 'package:umg/screen/glasses/FindAssetsMetaData.dart';
 import 'package:umg/screen/glasses/details.dart';
 
-
-
-
-
 class GlassesList extends StatefulWidget {
 
   const GlassesList({Key? key}) : super(key: key);

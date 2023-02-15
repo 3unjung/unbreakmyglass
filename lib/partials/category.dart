@@ -5,7 +5,7 @@ import 'package:umg/screen/glasses/details.dart';
 import 'package:umg/screen/homepage/products.dart';
 import '../screen/settings/profile.dart';
 import '../verre_icons_icons.dart';
-import '../gobelet_de_merde_icons.dart';
+import '../gobelet_icons.dart';
 
 
 
